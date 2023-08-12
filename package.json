@@ -1,0 +1,17 @@
+{
+  "name": "swag_labs_automation_cypress",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Shifat",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^12.17.3"
+  },
+  "devDependencies": {
+    "cypress-xpath": "^2.0.1"
+  }
+}
