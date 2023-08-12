@@ -15,5 +15,10 @@ describe('Home Page Test', () => {
         cy.wrap(count).should('eq', 6); // Assert that the count is equal to 6
       });
       });
+      // I want to fuck odhora.Ifsgrg
+      // gsdgrdghdfh
+      // rgdfhtfh
+      // hrtfhtr
+      // hbftghjntgrhjn
     
       });
