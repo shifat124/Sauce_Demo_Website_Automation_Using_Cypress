@@ -17,13 +17,11 @@ describe('LogIn Page Test', () => {
     cy.fixture('LogInData.json').then((data) => {
       const usernames = data.users.map((user) => user.username);
       const passwords = data.users.map((user) => user.password);
-      // Iterate through usernames and passwords
       for (let i = 0; i < usernames.length; i++) {
         cy.visit('https://www.saucedemo.com/v1/');
         cy.get('#user-name').type(usernames[i]);
         cy.get('#password').type(passwords[i]);
         cy.get('#login-button').click();
-        // Retrieve the URL and save it in a variable
         cy.url().then(url => {
           const currentUrl = url
           if (currentUrl === "https://www.saucedemo.com/v1/inventory.html") {

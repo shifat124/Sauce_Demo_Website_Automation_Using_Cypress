@@ -5,13 +5,9 @@ describe('Home Page Test', () => {
     cy.get('#password').type('secret_sauce');
     cy.get('#login-button').click();
     cy.get('.inventory_item').each((element, index, list) => {
-      // This callback will be executed for each element in the list
-      // You can perform any actions on the element if needed
     }).then((elements) => {
-      // The elements array contains the list of elements
       const count = elements.length;
-      // Now you can use the 'count' variable to validate
-      cy.wrap(count).should('eq', 6); // Assert that the count is equal to 6
+      cy.wrap(count).should('eq', 6);
     });
   });
   it('Validate sauce labs backpack item click', () => {
@@ -61,5 +57,31 @@ describe('Home Page Test', () => {
     cy.get('#login-button').click();
     cy.get('#item_3_title_link').click();
     cy.get('.inventory_details_name').invoke('text').should('equal', 'Test.allTheThings() T-Shirt (Red)');
+  });
+  it('Validate the visibility of cart logo', () => {
+    cy.visit('https://www.saucedemo.com/v1/');
+    cy.get('#user-name').type('standard_user');
+    cy.get('#password').type('secret_sauce');
+    cy.get('#login-button').click();
+    cy.get('path[fill="currentColor"]').should('be.visible');
+  });
+  it('Validate the transition after clicking on cart logo', () => {
+    cy.visit('https://www.saucedemo.com/v1/');
+    cy.get('#user-name').type('standard_user');
+    cy.get('#password').type('secret_sauce');
+    cy.get('#login-button').click();
+    cy.get('path[fill="currentColor"]').click();
+    cy.url().should('eq', 'https://www.saucedemo.com/v1/cart.html');
+  });
+  it('Validate the press of Add To Cart button for each items', () => {
+    cy.visit('https://www.saucedemo.com/v1/');
+    cy.get('#user-name').type('standard_user');
+    cy.get('#password').type('secret_sauce');
+    cy.get('#login-button').click();
+    cy.get('button.btn_primary.btn_inventory').each(($element, index) => {
+      cy.wrap($element).click();
+    });
+    cy.get('path[fill="currentColor"]').click();
+    cy.get('.fa-layers-counter.shopping_cart_badge').invoke('text').should('equal', '6');
   });
 });
