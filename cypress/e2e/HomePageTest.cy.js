@@ -111,4 +111,57 @@ describe('Home Page Test', () => {
     cy.get('#logout_sidebar_link').click();
     cy.url().should('eq', 'https://www.saucedemo.com/v1/index.html');
   });
+  it('Validate the visibility of dropdown in home page', () => {
+    cy.visit('https://www.saucedemo.com/v1/');
+    cy.get('#user-name').type('standard_user');
+    cy.get('#password').type('secret_sauce');
+    cy.get('#login-button').click();
+    cy.get('.product_sort_container').should('be.visible');
+  });
+  it('Validate the dropdown contains the expected and right options', () => {
+    cy.visit('https://www.saucedemo.com/v1/');
+    cy.get('#user-name').type('standard_user');
+    cy.get('#password').type('secret_sauce');
+    cy.get('#login-button').click();
+    cy.get('.product_sort_container').find('option').each(($option, index) => {
+      const expectedOptions = ['Name (A to Z)', 'Name (Z to A)', 'Price (low to high)', 'Price (high to low)']; // Update with your expected option texts
+      cy.wrap($option).should('have.text', expectedOptions[index]);
+    });
+  });
+  it('Validate visibility of "Name (A to Z)" text after selecting from dropdown options', () => {
+    cy.visit('https://www.saucedemo.com/v1/');
+    cy.get('#user-name').type('standard_user');
+    cy.get('#password').type('secret_sauce');
+    cy.get('#login-button').click();
+    cy.get('.product_sort_container').select('az');
+    const expectedOptionText = 'Name (A to Z)';
+    cy.get('.product_sort_container').find('option[value="az"]').should('have.text', expectedOptionText);
+  });
+  it('Validate visibility of "Name (Z to A)" text after selecting from dropdown options', () => {
+    cy.visit('https://www.saucedemo.com/v1/');
+    cy.get('#user-name').type('standard_user');
+    cy.get('#password').type('secret_sauce');
+    cy.get('#login-button').click();
+    cy.get('.product_sort_container').select('za');
+    const expectedOptionText = 'Name (Z to A)';
+    cy.get('.product_sort_container').find('option[value="za"]').should('have.text', expectedOptionText);
+  });
+  it('Validate visibility of "Price (low to high)" text after selecting from dropdown options', () => {
+    cy.visit('https://www.saucedemo.com/v1/');
+    cy.get('#user-name').type('standard_user');
+    cy.get('#password').type('secret_sauce');
+    cy.get('#login-button').click();
+    cy.get('.product_sort_container').select('lohi');
+    const expectedOptionText = 'Price (low to high)';
+    cy.get('.product_sort_container').find('option[value="lohi"]').should('have.text', expectedOptionText);
+  });
+  it('Validate visibility of "Price (high to low)" text after selecting from dropdown options', () => {
+    cy.visit('https://www.saucedemo.com/v1/');
+    cy.get('#user-name').type('standard_user');
+    cy.get('#password').type('secret_sauce');
+    cy.get('#login-button').click();
+    cy.get('.product_sort_container').select('hilo');
+    const expectedOptionText = 'Price (high to low)';
+    cy.get('.product_sort_container').find('option[value="hilo"]').should('have.text', expectedOptionText);
+  });
 });
