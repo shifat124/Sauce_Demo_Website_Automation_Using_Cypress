@@ -93,4 +93,22 @@ describe('Home Page Test', () => {
     cy.get('#inventory_sidebar_link').click();
     cy.url().should('eq', 'https://www.saucedemo.com/v1/inventory.html');
   });
+  it('Validate the press of About of side menu bar', () => {
+    cy.visit('https://www.saucedemo.com/v1/');
+    cy.get('#user-name').type('standard_user');
+    cy.get('#password').type('secret_sauce');
+    cy.get('#login-button').click();
+    cy.get('.bm-burger-button').click();
+    cy.get('#about_sidebar_link').click();
+    cy.title().should('eq', 'Sauce Labs: Cross Browser Testing, Selenium Testing & Mobile Testing');
+  });
+  it('Validate the press of Logout of side menu bar', () => {
+    cy.visit('https://www.saucedemo.com/v1/');
+    cy.get('#user-name').type('standard_user');
+    cy.get('#password').type('secret_sauce');
+    cy.get('#login-button').click();
+    cy.get('.bm-burger-button').click();
+    cy.get('#logout_sidebar_link').click();
+    cy.url().should('eq', 'https://www.saucedemo.com/v1/index.html');
+  });
 });
