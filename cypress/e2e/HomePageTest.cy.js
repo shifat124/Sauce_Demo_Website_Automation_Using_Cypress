@@ -65,7 +65,7 @@ describe('Home Page Test', () => {
     cy.get('#login-button').click();
     cy.get('path[fill="currentColor"]').should('be.visible');
   });
-  it('Validate the transition after clicking on cart logo', () => {
+  it('Validate the press of cart logo', () => {
     cy.visit('https://www.saucedemo.com/v1/');
     cy.get('#user-name').type('standard_user');
     cy.get('#password').type('secret_sauce');
@@ -83,5 +83,14 @@ describe('Home Page Test', () => {
     });
     cy.get('path[fill="currentColor"]').click();
     cy.get('.fa-layers-counter.shopping_cart_badge').invoke('text').should('equal', '6');
+  });
+  it('Validate the press of All Items of side menu bar', () => {
+    cy.visit('https://www.saucedemo.com/v1/');
+    cy.get('#user-name').type('standard_user');
+    cy.get('#password').type('secret_sauce');
+    cy.get('#login-button').click();
+    cy.get('.bm-burger-button').click();
+    cy.get('#inventory_sidebar_link').click();
+    cy.url().should('eq', 'https://www.saucedemo.com/v1/inventory.html');
   });
 });
