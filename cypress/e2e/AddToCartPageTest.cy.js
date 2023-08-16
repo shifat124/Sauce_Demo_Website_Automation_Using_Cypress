@@ -1,4 +1,4 @@
-describe('LogIn Page Test', () => {
+describe('AddToCart Page Test', () => {
     it('Validate press on Continue Shopping button', () => {
         cy.visit('https://www.saucedemo.com/v1/');
         cy.get('#user-name').type('standard_user');
