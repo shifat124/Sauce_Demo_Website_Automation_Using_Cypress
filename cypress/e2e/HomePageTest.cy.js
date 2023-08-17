@@ -165,3 +165,7 @@ describe('Home Page Test', () => {
     cy.get('.product_sort_container').find('option[value="hilo"]').should('have.text', expectedOptionText);
   });
 });
+
+
+
+
