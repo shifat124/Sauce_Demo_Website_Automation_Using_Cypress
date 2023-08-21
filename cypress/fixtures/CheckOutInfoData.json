@@ -1,0 +1,19 @@
+{
+    "checkoutinfodetails": [
+        {
+            "firstname": "Troy",
+            "lastname": "Kelvin",
+            "postalcode": 1400
+        },
+        {
+            "firstname": "Lina",
+            "lastname": "Degree",
+            "postalcode": 1000
+        },
+        {
+            "firstname": "Robin",
+            "lastname": "Celcius",
+            "postalcode": 2000
+        }
+    ]
+}
