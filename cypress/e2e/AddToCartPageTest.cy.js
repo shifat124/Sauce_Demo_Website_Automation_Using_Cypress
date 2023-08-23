@@ -1,21 +1,30 @@
+import LogInPage from "../pageobjects/LogInPage";
+import HomePage from "../pageobjects/HomePage";
+import AddToCartPage from "../pageobjects/AddToCartPage";
 describe('AddToCart Page Test', () => {
     it('Validate press on Continue Shopping button', () => {
         cy.visit('https://www.saucedemo.com/v1/');
-        cy.get('#user-name').type('standard_user');
-        cy.get('#password').type('secret_sauce');
-        cy.get('#login-button').click();
-        cy.get('path[fill="currentColor"]').click();
-        cy.get('.btn_secondary').click();
-        cy.url().should('eq', 'https://www.saucedemo.com/v1/inventory.html');
+        const lp = new LogInPage();
+        lp.setUserName('standard_user');
+        lp.setUserPassword('secret_sauce');
+        lp.clickBtnLogin();
+        const hp = new HomePage();
+        hp.clickCartLogo();
+        const ac = new AddToCartPage();
+        ac.clickcontinueShoppingBtn();
+        ac.verifyclickcontinueShoppingBtn();
     });
     it('Validate press on Checkout button', () => {
         cy.visit('https://www.saucedemo.com/v1/');
-        cy.get('#user-name').type('standard_user');
-        cy.get('#password').type('secret_sauce');
-        cy.get('#login-button').click();
-        cy.get('path[fill="currentColor"]').click();
-        cy.get('.btn_action.checkout_button').click();
-        cy.url().should('eq', 'https://www.saucedemo.com/v1/checkout-step-one.html');
+        const lp = new LogInPage();
+        lp.setUserName('standard_user');
+        lp.setUserPassword('secret_sauce');
+        lp.clickBtnLogin();
+        const hp = new HomePage();
+        hp.clickCartLogo();
+        const ac = new AddToCartPage();
+        ac.clickcheckoutBtn();
+        ac.verifyclickcheckoutBtn();
     });
 });
 
