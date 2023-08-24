@@ -19,3 +19,8 @@ An automation project of a E-Commerce based demo website using Cypress, JavaScri
 
 
 ![screen 4](https://github.com/shifat124/Sauce_Demo_Website_Automation_Using_Cypress/assets/69003347/2c57cea3-1ee1-4669-9326-d72add3c6984)
+
+
+* The link of HTML Report is given below -
+
+file:///C:/Users/shifa/OneDrive/Documents/Sauce_Demo_Website_Automation_Using_Cypress/cypress/reports/html/index.html
