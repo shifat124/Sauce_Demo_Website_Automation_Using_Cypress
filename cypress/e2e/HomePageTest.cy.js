@@ -121,8 +121,6 @@ describe('Home Page Test', () => {
     hp.clicksideMenuBar();
     hp.clickaboutOption();
     hp.verifyAboutOptionPress();
-    hp.clicklogoutOption();
-    hp.verifyLogoutOptionPress();
   });
   it('Validate the press of Logout of side menu bar', () => {
     cy.visit('https://www.saucedemo.com/v1/');
@@ -132,6 +130,8 @@ describe('Home Page Test', () => {
     lp.clickBtnLogin();
     const hp = new HomePage();
     hp.clicksideMenuBar();
+    hp.clicklogoutOption();
+    hp.verifyLogoutOptionPress();
   });
   it('Validate the visibility of dropdown in home page', () => {
     cy.visit('https://www.saucedemo.com/v1/');
