@@ -21,3 +21,7 @@ An automation project of a E-Commerce based demo website using Cypress, JavaScri
 ![screen 4](https://github.com/shifat124/Sauce_Demo_Website_Automation_Using_Cypress/assets/69003347/2c57cea3-1ee1-4669-9326-d72add3c6984)
 
 
+* The link of the recorded video of the whole project is given below -
+
+[![Cypress Swag Labs Automation Video]](https://vimeo.com/manage/videos/857616790)
+
